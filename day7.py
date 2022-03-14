@@ -65,12 +65,12 @@ def b(f):
             # ditto for equal zero, so must be both less which means local min
             break
 
-    # brute force confirm it is smooth
-    fuels = []
-    for i in range(s[-1] + 1):
-        fuels.append(measure(i))
-    print(fuels)
-    print(min(fuels))
+    # brute force confirm it is smooth, and actually runs fast enough for part B anyway.
+    # fuels = []
+    # for i in range(s[-1] + 1):
+    #     fuels.append(measure(i))
+    # print(fuels)
+    # print(min(fuels))
 
 
 # a("day7t.txt")
