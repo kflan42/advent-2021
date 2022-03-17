@@ -1,5 +1,6 @@
 from typing import List
 
+from adventutils import load
 
 delims = {
     '(': ')',
@@ -19,10 +20,6 @@ points2 = {
     '}': 3,
     '>': 4,
 } 
-
-def load(f) -> List[str]:
-    with open(f) as o:
-        return [l.strip() for l in o.readlines()]
 
 def ab(f):
     score1 = 0

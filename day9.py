@@ -1,4 +1,4 @@
-from typing import Dict, List, Tuple
+from adventutils import load
 
 
 class CaveMap:
@@ -59,15 +59,12 @@ class CaveMap:
         return basins
 
 
-def load(f) -> CaveMap:  # List[List[int]]:
+def _load(f) -> CaveMap:  # List[List[int]]:
     o = open(f)
 
     heightmap = []
 
-    for line in o.readlines():
-        line = line.strip()
-        if not line:
-            continue
+    for line in load(f):
         row = []
         for h in line:
             row.append(int(h))
@@ -77,7 +74,7 @@ def load(f) -> CaveMap:  # List[List[int]]:
 
 
 def a(f):
-    cave = load(f)
+    cave = _load(f)
     risk = 0
     for y in range(len(cave.heightmap)):
         for x in range(len(cave.heightmap[y])):
@@ -87,7 +84,7 @@ def a(f):
 
 
 def b(f):
-    cave = load(f)
+    cave = _load(f)
     basins = sorted(cave.find_basins(), key=lambda b: -len(b))
     a, b, c = basins[0:3]
     print(len(a) * len(b) * len(c))

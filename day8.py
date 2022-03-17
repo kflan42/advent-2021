@@ -18,13 +18,14 @@
 
 from typing import List, Tuple
 
+from adventutils import load
 
-def load(f) -> List[Tuple[List[str], List[str]]]:
-    o = open(f)
+
+def _load(f) -> List[Tuple[List[str], List[str]]]:
     data = []
 
-    for line in o.readlines():
-        nums = line.strip().split(" ")
+    for line in load(f):
+        nums = line.split(" ")
         digits, value = [], []
         seen_pipe = False
         for num in nums:
@@ -145,7 +146,7 @@ def solveB(digits, value):
 
 
 def a(f):
-    data = load(f)
+    data = _load(f)
     total_found = 0
     for line in data:
         print()
@@ -154,7 +155,7 @@ def a(f):
 
 
 def b(f):
-    data = load(f)
+    data = _load(f)
     total = 0
     for line in data:
         # print()

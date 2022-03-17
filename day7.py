@@ -1,18 +1,16 @@
 from typing import List
-from collections import defaultdict
-import math as m
+
+from adventutils import load
 
 
-def load(f) -> List[int]:
-    o = open(f)
-
-    line = o.readline().strip()
+def _load(f) -> List[int]:
+    line = load(f)[0]
     nums = line.split(",")
     return [int(n) for n in nums]
 
 
 def a(f):
-    crabs = load(f)
+    crabs = _load(f)
     print(crabs)
     s = sorted(crabs)
     med = s[len(s) // 2]
@@ -24,7 +22,7 @@ def a(f):
 
 
 def b(f):
-    crabs = load(f)
+    crabs = _load(f)
     print(crabs)
     s = sorted(crabs)
     print(s)
